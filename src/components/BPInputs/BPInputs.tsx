@@ -3,9 +3,13 @@ import { animateCard } from "../../utils";
 import styles from "./BPInputs.module.scss";
 
 interface Props {
+  sys: string;
+  dia: string;
+  setSys: React.Dispatch<React.SetStateAction<string>>;
+  setDia: React.Dispatch<React.SetStateAction<string>>;
   disabled: boolean;
 }
-const BPInputs = ({ disabled }: Props) => {
+const BPInputs = ({ sys, setSys, dia, setDia, disabled }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -21,6 +25,8 @@ const BPInputs = ({ disabled }: Props) => {
           name="systolic"
           max={200}
           min={60}
+          value={sys}
+          onChange={(e) => setSys(e.target.value)}
           readOnly={disabled}
         />
         <span className={styles.divider}>/</span>
@@ -30,6 +36,8 @@ const BPInputs = ({ disabled }: Props) => {
           name="diastolic"
           max={100}
           min={35}
+          value={dia}
+          onChange={(e) => setDia(e.target.value)}
           readOnly={disabled}
         />
       </div>

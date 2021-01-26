@@ -35,4 +35,7 @@
   &:focus {
     outline: none;
   }
+  &:disabled {
+    filter: brightness(0.8);
+  }
 }

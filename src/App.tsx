@@ -3,15 +3,17 @@ import "./styles/globals.scss";
 import BPInputs from "./components/BPInputs";
 import { ReactComponent as CheckIcon } from "./assets/icons/arrow_forward-24px.svg";
 import { BTN_FADE_ANIM_DURATION } from "./App.constants";
+import { animateBtnAppearance, animateBtnDisappearance } from "./utils";
 
 import styles from "./App.module.scss";
-import { animateBtnAppearance, animateBtnDisappearance } from "./utils";
 
 function App() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const checkBtnRef = useRef<HTMLButtonElement>(null);
 
   const [entered, setEntered] = useState(false);
+  const [sysInput, setSysInput] = useState("");
+  const [diaInput, setDiaInput] = useState("");
 
   useEffect(() => {
     animateBtnAppearance(checkBtnRef.current);
@@ -29,12 +31,19 @@ function App() {
       <h1 ref={titleRef} className={styles.appTitle}>
         Essence
       </h1>
-      <BPInputs disabled={entered} />
+      <BPInputs
+        disabled={entered}
+        sys={sysInput}
+        setSys={setSysInput}
+        dia={diaInput}
+        setDia={setDiaInput}
+      />
       {!entered && (
         <button
           ref={checkBtnRef}
           className={styles.checkBtn}
           onClick={checkBPValues}
+          disabled={!sysInput || !diaInput}
         >
           <CheckIcon />
         </button>
