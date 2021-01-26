@@ -3,4 +3,44 @@
 .container {
   @extend %neu;
   @extend %pad;
+  @extend %greyGrad;
+  text-align: center;
+}
+
+.info {
+  color: var(--text-secondary);
+}
+
+.inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+input {
+  width: 80px;
+  text-align: center;
+  font-weight: bold;
+  background: inherit;
+  border: none;
+  color: var(--text);
+  font-size: 20px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--text-secondary);
+
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+
+  &:focus {
+    border-bottom-color: var(--text);
+  }
+}
+
+.divider {
+  margin: 0 16px;
+  font-weight: bold;
+  color: var(--text-secondary);
 }
