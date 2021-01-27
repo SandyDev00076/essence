@@ -1,9 +1,6 @@
 @use '../../styles/shared';
 
 .container {
-  @extend %neu;
-  @extend %pad;
-  @extend %greyGrad;
   @extend %card;
   text-align: center;
 }

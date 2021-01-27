@@ -1,6 +1,6 @@
 import { APPEAR_DURATION, BTN_FADE_ANIM_DURATION } from "../App.constants";
 
-export function animateCard(ele: HTMLDivElement | null) {
+export function animateCard(ele: HTMLDivElement | null, index = 0) {
   if (!ele) return;
   ele.animate(
     [
@@ -10,6 +10,7 @@ export function animateCard(ele: HTMLDivElement | null) {
     {
       fill: "forwards",
       duration: APPEAR_DURATION,
+      delay: index * APPEAR_DURATION,
       easing: "ease-in-out",
     }
   );

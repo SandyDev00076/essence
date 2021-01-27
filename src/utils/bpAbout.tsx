@@ -1,4 +1,4 @@
-interface BPCard {
+export interface BPCard {
   title: string;
   content: JSX.Element | string;
 }
@@ -9,6 +9,8 @@ interface BPState {
 }
 
 export function getBPState(systolic: string, diastolic: string): BPState {
+  console.log("systolic - ", systolic);
+  console.log("diastolic - ", diastolic);
   const sys = parseInt(systolic);
   const dia = parseInt(diastolic);
 
@@ -139,6 +141,31 @@ export function getBPState(systolic: string, diastolic: string): BPState {
     };
   return {
     type: "High",
-    cards: [],
+    cards: [
+      {
+        title: "About",
+        content: `Your reading of ${sys}/${dia} is high, also known as 'silent killer'. If your GP practice does not already know about this, make an appointment to see either your doctor or nurse in the next month to get it checked.`,
+      },
+      {
+        title: "Risks",
+        content:
+          "High blood pressure rarely has obvious symptoms. But left untreated, it increases your risk of having a heart attack or stroke.",
+      },
+      {
+        title: "Remedy",
+        content: (
+          <>
+            While you may need medication, the good news is you may well be able
+            to lower your blood pressure through lifestyle changes, such as:
+            <ul>
+              <li>Losing weight (if you're overweight)</li>
+              <li>Reducing the amount of salt in your diet</li>
+              <li>Exercising regularly</li>
+              <li>Cutting back on alcohol and caffeine</li>
+            </ul>
+          </>
+        ),
+      },
+    ],
   };
 }

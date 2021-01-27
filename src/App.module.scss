@@ -13,16 +13,26 @@
   font-weight: bold;
 }
 
-.checkBtn {
-  @extend %appBtn;
+.circleBtn {
   display: grid;
   place-items: center;
   height: 60px;
   width: 60px;
   border-radius: 30px;
+}
+
+.checkBtn {
+  @extend %appBtn;
+  @extend .circleBtn;
   position: fixed;
   left: 0;
   right: 0;
   margin: 0 auto;
   bottom: 24px;
+}
+
+.resetBtn {
+  @extend %appBtn;
+  @extend .circleBtn;
+  margin-bottom: 24px;
 }

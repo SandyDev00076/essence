@@ -1,0 +1,27 @@
+@use '../../styles/shared';
+
+.container {
+  @extend %card;
+}
+
+.content {
+  line-height: 1.4;
+
+  & > a {
+    border: 1px solid var(--primary-light);
+    border-radius: 10px;
+    width: max-content;
+    margin: 5px 3px;
+    display: inline-block;
+    padding: 4px 5px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: var(--primary);
+}
