@@ -6,6 +6,8 @@ import { BTN_FADE_ANIM_DURATION } from "./App.constants";
 import { animateBtnAppearance, animateBtnDisappearance } from "./utils";
 
 import styles from "./App.module.scss";
+import { readings } from "./stores/readingStore";
+import { Observer } from "mobx-react-lite";
 
 function App() {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -23,6 +25,8 @@ function App() {
     animateBtnDisappearance(checkBtnRef.current);
     setTimeout(() => {
       setEntered(true);
+      readings.setSystolic(sysInput);
+      readings.setDiastolic(diaInput);
     }, BTN_FADE_ANIM_DURATION);
   }
 
@@ -38,6 +42,7 @@ function App() {
         dia={diaInput}
         setDia={setDiaInput}
       />
+      <Observer>{() => <>{entered && <div>Hello</div>}</>}</Observer>
       {!entered && (
         <button
           ref={checkBtnRef}
