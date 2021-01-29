@@ -40,6 +40,7 @@ const BPInputs = ({
           value={sys}
           onChange={(e) => setSys(e.target.value)}
           readOnly={disabled}
+          autoFocus
         />
         <span className={styles.divider}>/</span>
         <input

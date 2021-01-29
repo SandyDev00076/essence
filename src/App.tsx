@@ -57,7 +57,9 @@ function App() {
         setSys={setSysInput}
         dia={diaInput}
         setDia={setDiaInput}
-        onEnterHit={() => checkBtnRef.current?.click()}
+        onEnterHit={() =>
+          !entered ? checkBtnRef.current?.click() : resetBtnRef.current?.click()
+        }
       />
       <Observer>
         {() => (
