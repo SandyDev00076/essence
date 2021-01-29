@@ -6,10 +6,26 @@
   --text-secondary: #9e9e9e;
   --primary: #00897b;
   --primary-light: #b2dfdb;
+  --success: #43a047;
+  --danger: #f4511e;
   --primary-light-tint: #06a393;
   --primary-dark-tint: #02776b;
 }
 
 ul {
   padding-left: 16px;
+}
+
+.goodIndication {
+  color: var(--success);
+}
+
+.badIndication {
+  color: var(--danger);
+}
+
+input {
+  &:focus {
+    outline: none;
+  }
 }

@@ -8,17 +8,29 @@ interface Props {
   setSys: React.Dispatch<React.SetStateAction<string>>;
   setDia: React.Dispatch<React.SetStateAction<string>>;
   disabled: boolean;
+  onEnterHit: () => void;
 }
-const BPInputs = ({ sys, setSys, dia, setDia, disabled }: Props) => {
+const BPInputs = ({
+  sys,
+  setSys,
+  dia,
+  setDia,
+  disabled,
+  onEnterHit,
+}: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     animateCard(containerRef.current);
   }, []);
 
+  function onKeyPress(e: React.KeyboardEvent<HTMLFormElement>) {
+    if (e.key === "Enter") onEnterHit();
+  }
+
   return (
     <section className={styles.container} ref={containerRef}>
-      <div className={styles.inputs}>
+      <form className={styles.inputs} onKeyUp={onKeyPress}>
         <input
           placeholder="Sys"
           type="number"
@@ -40,7 +52,7 @@ const BPInputs = ({ sys, setSys, dia, setDia, disabled }: Props) => {
           onChange={(e) => setDia(e.target.value)}
           readOnly={disabled}
         />
-      </div>
+      </form>
       <span className={styles.info}>
         All units are in <strong>mmHg</strong>
       </span>

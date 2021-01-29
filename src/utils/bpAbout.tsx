@@ -8,9 +8,19 @@ interface BPState {
   cards: BPCard[];
 }
 
+interface Props {
+  children: React.ReactNode;
+}
+
+const Good = ({ children }: Props) => {
+  return <span className="goodIndication">{children}</span>;
+};
+
+const Bad = ({ children }: Props) => {
+  return <span className="badIndication">{children}</span>;
+};
+
 export function getBPState(systolic: string, diastolic: string): BPState {
-  console.log("systolic - ", systolic);
-  console.log("diastolic - ", diastolic);
   const sys = parseInt(systolic);
   const dia = parseInt(diastolic);
 
@@ -20,8 +30,12 @@ export function getBPState(systolic: string, diastolic: string): BPState {
       cards: [
         {
           title: "Risks",
-          content:
-            "Naturally low blood pressure is unlikely to cause any symptoms and is normally nothing to worry about.",
+          content: (
+            <span>
+              Naturally low blood pressure is <Good>unlikely</Good> to cause any
+              symptoms and is normally nothing to worry about.
+            </span>
+          ),
         },
         {
           title: "Tip",
@@ -62,8 +76,14 @@ export function getBPState(systolic: string, diastolic: string): BPState {
       cards: [
         {
           title: "About",
-          content:
-            "Your blood pressure is in the ideal range. Keep up a healthy lifestyle, as not only will this help your blood pressure – and risk of having a heart attack or stroke – but also many wider health issues.",
+          content: (
+            <span>
+              Your blood pressure is in the <Good>ideal range</Good>. Keep up a
+              healthy lifestyle, as not only will this help your blood pressure
+              – and risk of having a heart attack or stroke – but also many
+              wider health issues.
+            </span>
+          ),
         },
         {
           title: "Tip",
@@ -97,20 +117,29 @@ export function getBPState(systolic: string, diastolic: string): BPState {
       cards: [
         {
           title: "About",
-          content:
-            "Your blood pressure is described as being high-normal. Ideally, it should be below 120/80mmHg.",
+          content: (
+            <span>
+              Your blood pressure is described as being <Bad>high-normal</Bad>.
+              Ideally, it should be <Good>below 120/80mmHg</Good>.
+            </span>
+          ),
         },
         {
           title: "Risks",
-          content:
-            'Known as the "silent killer", high blood pressure rarely has obvious symptoms. But left untreated, it increases your risk of having a heart attack or stroke.',
+          content: (
+            <span>
+              Known as the <Bad>"silent killer"</Bad>, high blood pressure
+              rarely has obvious symptoms. But left untreated, it{" "}
+              <Bad>increases your risk of having a heart attack</Bad> or stroke.
+            </span>
+          ),
         },
         {
           title: "Remedy",
           content: (
             <>
-              The good news is it can be brought under control through lifestyle
-              changes, such as:
+              The <Good>good news</Good> is it can be brought under control
+              through lifestyle changes, such as:
               <ul>
                 <li>Losing weight (if you're overweight)</li>
                 <li>Reducing the amount of salt in your diet</li>
@@ -144,19 +173,32 @@ export function getBPState(systolic: string, diastolic: string): BPState {
     cards: [
       {
         title: "About",
-        content: `Your reading of ${sys}/${dia} is high, also known as 'silent killer'. If your GP practice does not already know about this, make an appointment to see either your doctor or nurse in the next month to get it checked.`,
+        content: (
+          <span>
+            Your reading of {sys}/{dia} is <Bad>high</Bad>, also known as{" "}
+            <Bad>'silent killer'</Bad>. If your GP practice does not already
+            know about this, make an appointment to see either your doctor or
+            nurse in the next month to get it checked.
+          </span>
+        ),
       },
       {
         title: "Risks",
-        content:
-          "High blood pressure rarely has obvious symptoms. But left untreated, it increases your risk of having a heart attack or stroke.",
+        content: (
+          <span>
+            High blood pressure rarely has obvious symptoms. But left untreated,
+            it <Bad>increases your risk of having a heart attack</Bad> or
+            stroke.
+          </span>
+        ),
       },
       {
         title: "Remedy",
         content: (
           <>
-            While you may need medication, the good news is you may well be able
-            to lower your blood pressure through lifestyle changes, such as:
+            While you may need medication, the <Good>good news</Good> is you may
+            well be able to lower your blood pressure through lifestyle changes,
+            such as:
             <ul>
               <li>Losing weight (if you're overweight)</li>
               <li>Reducing the amount of salt in your diet</li>
