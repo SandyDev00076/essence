@@ -7,8 +7,7 @@ import { BTN_FADE_ANIM_DURATION } from "./App.constants";
 import { animateBtnAppearance, animateBtnDisappearance } from "./utils";
 import { readings } from "./stores/readingStore";
 import { Observer } from "mobx-react-lite";
-import { getBPState } from "./utils/bpAbout";
-import Card from "./components/Card";
+import Cards from "./components/Cards";
 
 import styles from "./App.module.scss";
 
@@ -65,18 +64,10 @@ function App() {
         {() => (
           <>
             {entered && (
-              <>
-                {getBPState(readings.systolic, readings.diastolic).cards.map(
-                  (card, index) => (
-                    <Card
-                      key={index}
-                      title={card.title}
-                      content={card.content}
-                      index={index}
-                    />
-                  )
-                )}
-              </>
+              <Cards
+                systolic={readings.systolic}
+                diastolic={readings.diastolic}
+              />
             )}
           </>
         )}

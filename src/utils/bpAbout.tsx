@@ -20,6 +20,10 @@ const Bad = ({ children }: Props) => {
   return <span className="badIndication">{children}</span>;
 };
 
+export const InvalidContent: JSX.Element = (
+  <Bad>Values that you have entered are wrong. Reset and try again.</Bad>
+);
+
 export function getBPState(systolic: string, diastolic: string): BPState {
   const sys = parseInt(systolic);
   const dia = parseInt(diastolic);
