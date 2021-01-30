@@ -35,8 +35,8 @@ const BPInputs = ({
           placeholder="Sys"
           type="number"
           name="systolic"
-          max={200}
-          min={60}
+          max={190}
+          min={70}
           value={sys}
           onChange={(e) => setSys(e.target.value)}
           readOnly={disabled}
@@ -48,7 +48,7 @@ const BPInputs = ({
           type="number"
           name="diastolic"
           max={100}
-          min={35}
+          min={40}
           value={dia}
           onChange={(e) => setDia(e.target.value)}
           readOnly={disabled}
