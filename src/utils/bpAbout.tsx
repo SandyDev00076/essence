@@ -24,6 +24,19 @@ export const InvalidContent: JSX.Element = (
   <Bad>Values that you have entered are wrong. Reset and try again.</Bad>
 );
 
+export const ReferenceCard: BPCard = {
+  title: "Reference",
+  content: (
+    <a
+      href="https://www.nhs.uk/conditions/blood-pressure-test/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      www.nhs.uk
+    </a>
+  ),
+};
+
 export function getBPState(systolic: string, diastolic: string): BPState {
   const sys = parseInt(systolic);
   const dia = parseInt(diastolic);
@@ -63,15 +76,24 @@ export function getBPState(systolic: string, diastolic: string): BPState {
           title: "Links",
           content: (
             <>
-              <a href="https://www.mayoclinic.org/diseases-conditions/low-blood-pressure/diagnosis-treatment/drc-20355470">
+              <a
+                href="https://www.mayoclinic.org/diseases-conditions/low-blood-pressure/diagnosis-treatment/drc-20355470"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Mayo Clinic
               </a>
-              <a href="https://www.webmd.com/heart/understanding-low-blood-pressure-basics#1">
+              <a
+                href="https://www.webmd.com/heart/understanding-low-blood-pressure-basics#1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 WebMD
               </a>
             </>
           ),
         },
+        ReferenceCard,
       ],
     };
   if (sys < 120 && dia < 80)
@@ -113,6 +135,7 @@ export function getBPState(systolic: string, diastolic: string): BPState {
           content:
             "If you have a home blood pressure monitor, check your blood pressure regularly, but make sure to tell your GP you're doing this.",
         },
+        ReferenceCard,
       ],
     };
   if (sys < 140 && dia < 90)
@@ -158,18 +181,31 @@ export function getBPState(systolic: string, diastolic: string): BPState {
           title: "Links",
           content: (
             <>
-              <a href="https://www.mayoclinic.org/diseases-conditions/prehypertension/symptoms-causes/syc-20376703">
+              <a
+                href="https://www.mayoclinic.org/diseases-conditions/prehypertension/symptoms-causes/syc-20376703"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Mayo Clinic
               </a>
-              <a href="https://www.webmd.com/hypertension-high-blood-pressure/guide/prehypertension-are-you-at-risk#1">
+              <a
+                href="https://www.webmd.com/hypertension-high-blood-pressure/guide/prehypertension-are-you-at-risk#1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 WebMD
               </a>
-              <a href="https://www.kidney.org/news/kidneyCare/fall10/Prehypertension">
+              <a
+                href="https://www.kidney.org/news/kidneyCare/fall10/Prehypertension"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Kidney.org
               </a>
             </>
           ),
         },
+        ReferenceCard,
       ],
     };
   return {
@@ -212,6 +248,35 @@ export function getBPState(systolic: string, diastolic: string): BPState {
           </>
         ),
       },
+      {
+        title: "Links",
+        content: (
+          <>
+            <a
+              href="https://www.healthline.com/health/high-blood-pressure-hypertension#overview"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Healthline
+            </a>
+            <a
+              href="https://www.mayoclinic.org/diseases-conditions/high-blood-pressure/symptoms-causes/syc-20373410"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Mayo Clinic
+            </a>
+            <a
+              href="https://www.heart.org/en/health-topics/high-blood-pressure"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              heart.org
+            </a>
+          </>
+        ),
+      },
+      ReferenceCard,
     ],
   };
 }
